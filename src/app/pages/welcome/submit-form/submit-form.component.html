@@ -1,0 +1,54 @@
+
+<form nz-form [formGroup]="submitForm" >
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="nameErrorTpl">
+          <input nz-input formControlName="name" placeholder="Please enter your name" />
+          <ng-template #nameErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">Please input your name!</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>City</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="cityErrorTpl">
+          <input nz-input formControlName="city" placeholder="Please enter your city" />
+          <ng-template #cityErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">Please input your city!</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Address</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="addressErrorTpl">
+          <input nz-input formControlName="address" placeholder="Please enter your address" />
+          <ng-template #addressErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">Please input your address!</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+    <div nz-col nzSpan="12">
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Email Address</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback  [nzErrorTip]="emailAddressErrorTpl">
+          <input nz-input formControlName="emailAddress" placeholder="Please enter your address" />
+          <ng-template #emailAddressErrorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">Please input your email address!</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <div class="submit-btn">
+    <button (click)="submitFormData()" nz-button nzType="primary">Submit</button>
+  </div>
+</form>

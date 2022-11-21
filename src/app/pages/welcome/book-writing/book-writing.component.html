@@ -1,0 +1,38 @@
+
+
+<h5 nz-typography>Your Thoughts:</h5>
+<textarea [(ngModel)]="textContent" rows="4" nz-input  (dblclick)="getInfoOnSelectedWord()"></textarea>
+<div class="submit-btn">
+  <button (click)="navigateToSubmit()" nz-button nzType="primary">Send</button>
+</div>
+
+<nz-drawer
+[nzBodyStyle]="{ overflow: 'auto' }"
+[nzMaskClosable]="false"
+[nzWidth]="400"
+[nzVisible]="wordDataDrawerShow"
+nzTitle="Word Meaning"
+(nzOnClose)="close()"
+>
+<div *nzDrawerContent>
+  <h3 nz-typography >{{wordData.pronunciation}}</h3>
+   <div class="d-flex">
+    <h5 nz-typography>Part of Speech:</h5> <p nz-typography>{{wordData.partOfSpeech}}</p>
+   </div>
+   <div class="d-flex">
+    <h5 nz-typography>Meaning:</h5> <p nz-typography>{{wordData.meaning}}</p>
+   </div>
+  <div class="d-flex">
+    <h5 nz-typography>Synonyms:</h5>
+    <div class="synonyms" *ngFor="let synonyms of wordData.synonyms">
+      <p nz-typography>{{synonyms}},</p>
+    </div>
+  </div>
+  <div class="d-flex">
+    <h5 nz-typography>Examples:</h5>
+    <div class="examples" *ngFor="let examples of wordData.examples">
+      <p nz-typography>{{examples}},</p>
+    </div>
+  </div>
+</div>
+</nz-drawer>
